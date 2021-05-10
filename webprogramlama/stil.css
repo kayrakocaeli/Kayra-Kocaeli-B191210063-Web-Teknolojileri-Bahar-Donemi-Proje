@@ -1,4 +1,5 @@
 @charset "utf-8";
+/*Ortak Stil Kodları*/
 body{
     margin: 0;
     padding: 0;
@@ -54,6 +55,7 @@ transform: translate(0%,+50%);
     transform: translate(0%,+50%);
     
 }
+/* ındex.html Stil Kodları*/
 .background{
     background:url("background_1.webp") ;
     width: 100%;
@@ -82,8 +84,8 @@ color: white;
 font-size: 30px;
 text-align: center;
 }
-a{text-decoration: none; color: white;}
 
+a{text-decoration: none; color: white;}
 
 .yazilar{
     
@@ -124,8 +126,164 @@ a{text-decoration: none; color: white;}
 .p2{
     font-size: 200%;
 }
-@media only screen and (max-width:1300px){
+/* ozgecmis.html Stil Kodları*/
+header{
+  display: flex;
+  justify-content: center;
+}
+aside{
+  float: left;
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+  height: 100%;
+  border: 5px solid silver;
+  
 
+}
+article{
+  
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+  height: 100%;
+  border: 5px solid silver;
+  
+}
+.profilp{
+  max-width: 20%;
+  height: auto;
+  margin-left: 50%;
+  margin-right: 50%;
+  display:flex;
+  justify-content: center;
+}
+
+.baslik_kisiselbilgiler{
+  display: flex;
+  justify-content: center;
+}
+
+/* sehrim.html stil kodları*/
+.slider{
+  position: relative;
+  width: 1000px;
+  height: 500px;
+  margin: auto;
+  overflow: hidden;
+  
+}
+.slider_icerik{
+  position: absolute;
+  width: 500%;
+  left: 0;
+
+  animation: slide 30s infinite;
+  
+
+}
+.slider_item{
+  width: 20%;
+  float: left;
+
+}
+.slider_icerik:hover{
+  animation-play-state:paused;
+}
+.balıkesir{
+  display: flex;
+  justify-content: center;
+  font-size: 600%;
+  font-family: fantasy;
+  background-color:cyan ;
+}
+.balıkesir_paragraf{
+  display: flex;
+  justify-content: center;
+  font-size: 300%;
+  background:url("background_4.jpg");
+}
+.ayvalık{
+  
+  font-size: 300%;
+  border: solid black;
+  background-color: darkgrey;
+  
+  
+}
+
+
+.cunda{
+  font-size: 300%;
+  background-color: darkgrey;
+  border: solid black;
+  
+}
+.kus_cenneti{
+  font-size: 300%;
+  background-color: darkgrey;
+  border: solid black;
+  
+}
+/* mirasimiz.html stil kodları */
+
+.mirasimiz_baslik{
+  display: flex;
+  justify-content: center;
+}
+
+.balıkesirspor_logo{
+  display: flex;
+  float: left;
+  transform: translate(-300%,+0%);
+  margin: 10px;
+  
+}
+.balikesirspor_baslik{
+  font-family:fantasy;
+    font-size: 900%;
+    text-align: center;
+    color: black;
+    
+  justify-content: center;
+  transform: translate(0%,+32%);
+  
+  
+}
+.Balıkesirspor_ilk_logo{
+  display: flex;
+  justify-content:space-around;
+  
+}
+.balikesiralt_yazi{
+  
+  transform: translate(+40%,+20%);
+}
+.stad {
+  width: 50%;
+  height: 50%;
+}
+.balıkesirspor_sonparagraf{
+  display:flex;
+  justify-content:center;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Ortak Responsive Kodlar*/
+@media only screen and (max-width:1366px){
+    
     .logo img{width: 100%;}
     .pp img{width: 98%;}
     .ad_baslik{font-size:300% ;}
@@ -133,6 +291,7 @@ a{text-decoration: none; color: white;}
     .nav_bar .dropdown{margin-right: 10%;margin-top: 50px;}
     .menu ul{display:none;}
     .menu i{display: block;}
+    .sutunlar{width: 100%;}
     .mainmenubtn{margin: 10px;  
           }
           .mainmenubtn:hover {
@@ -189,12 +348,41 @@ a{text-decoration: none; color: white;}
           .dropdown:hover .dropdown-child {
             display: block;
           }
+    }
     
-
-    
-    
+    @keyframes slide{
+      0%{
+        transform: translateX(0px);
+      }
+      10%{
+        transform: translateX(-1000px);
+      }
+      20%{
+        transform: translateX(-1000px);
+      }
+      30%{
+        transform: translateX(-2000px);
+      }
+      40%{
+        transform: translateX(-2000px);
+      }
+      50%{
+        transform: translateX(-3000px);
+      }
+      60%{
+        transform: translateX(-3000px);
+      }
+      70%{
+        transform: translateX(-4000px);
+      }
+      80%{
+        transform: translateX(-4000px);
+      }
+     
+      
     }
     
     
 
 
+          
