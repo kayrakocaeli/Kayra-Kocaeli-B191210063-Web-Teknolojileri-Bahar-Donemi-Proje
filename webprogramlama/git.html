@@ -40,54 +40,69 @@
                       </div>
                 </div>
             </div>
-            
-            <div class="iletisim">
-                <form name="islem" id="contact" action="git.html" method=""  onsubmit="return kontrol()" >
-                    <h2>İletişim Sayfası</h2>
-                    <div class="form-control">
-                        <input placeholder="Adınız Soyadınız" type="text" name="name" required autofocus>
-                    </div>
-                    <div class="form-control">
-                        <input placeholder="E-Posta Adresiniz" type="email" name="email" required>
-                    </div>
-                    <div class="form-control">
-                        <input placeholder="Konu" type="text" name="konu" required>
-                    </div>
-                    <div class="form-control">
-                        <textarea placeholder="Lütfen Mesajınızı Buraya Yazın.." name="message" required></textarea>
-                    </div>
-                    <div class="form-control">
-                        <button name="submit" type="submit" class="btn btn-primary btn1" id="submit">GÖNDER</button>
-                        
-                    </div>
-                </form>
+            <div class="container">
+<div class="row">
+            <script type="text/javascript">
+
+                function getParameterByName(name, url) 
+                {
+                    if (!url) url = window.location.href;
+                       name = name.replace(/[\[\]]/g, '\\$&');
+                    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                        results = regex.exec(url);
+                       if (!results) return null;
+                       if (!results[2]) return '';
+                       return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                }
+
+                  var name = getParameterByName('name');
+                  var email = getParameterByName('email');
+                  var message = getParameterByName('message');
+
+            </script>
+            	<table class="table">
+                    <thead class="table">
+                        <tr>
+                            <th>Mesajınız başarılı bir şekilde alındı.</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>İsminiz</td>
+                            <td>
+                                <script>document.write(name);
+                                </script>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>E-Mail</td>
+                            <td>
+                                <script>document.write(email);
+                                </script>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Mesajınız</td>
+                            <td>
+                                <script>document.write(message);
+                                </script>
+                            </td>
+                        </tr>
+
+                    </tbody>
                 
-               
-            </div>
+            </table>	
+
+
+        </div>
+    </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
         </div>   
     </body>
 </html>

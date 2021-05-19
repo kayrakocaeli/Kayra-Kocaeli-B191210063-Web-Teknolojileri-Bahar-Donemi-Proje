@@ -40,30 +40,50 @@
                       </div>
                 </div>
             </div>
+           
+
             
-            <div class="iletisim">
-                <form name="islem" id="contact" action="git.html" method=""  onsubmit="return kontrol()" >
-                    <h2>İletişim Sayfası</h2>
-                    <div class="form-control">
-                        <input placeholder="Adınız Soyadınız" type="text" name="name" required autofocus>
+
+                <div class="giris_ekrani">
+
+                    
+                        <h1 class="font-italic">
+                            Giriş Ekranı
+                        </h1>
                     </div>
-                    <div class="form-control">
-                        <input placeholder="E-Posta Adresiniz" type="email" name="email" required>
-                    </div>
-                    <div class="form-control">
-                        <input placeholder="Konu" type="text" name="konu" required>
-                    </div>
-                    <div class="form-control">
-                        <textarea placeholder="Lütfen Mesajınızı Buraya Yazın.." name="message" required></textarea>
-                    </div>
-                    <div class="form-control">
-                        <button name="submit" type="submit" class="btn btn-primary btn1" id="submit">GÖNDER</button>
-                        
-                    </div>
-                </form>
+
                 
-               
-            </div>
+           
+
+           
+
+
+
+
+                            
+                    <div class="iletisim">
+                        
+                        <form name="islem" id="contact" action="git-giris.php" method="POST">
+
+                            <div class="form-control">
+                                <label for="email">Email</label>
+                                <input type="text" name="email" class="form-control" placeholder="Email 'b191210063@sakarya.edu.tr'" required="required">
+                            </div>
+
+                            <div class="form-control">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" class="form-control" placeholder="Şifre 'b191210063'" required="required">
+                            </div>
+
+                            <button class="btn btn-success" type="submit">Giriş</button>
+
+                            <br><br><br>
+
+                        </form>
+
+                    </div>
+
+                   
 
 
 
@@ -77,17 +97,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+            
         </div>   
     </body>
 </html>

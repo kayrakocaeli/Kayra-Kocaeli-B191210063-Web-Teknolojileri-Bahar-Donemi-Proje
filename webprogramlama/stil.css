@@ -281,6 +281,7 @@ article{
     width: 100%;
     margin: 0 auto;
     position: relative;
+    height: 100vh;
 
 }
 .form-control{
@@ -292,6 +293,7 @@ article{
   
 
 }
+
 
 #contact textarea:hover {
   -webkit-transition: border-color 0.4s ease-in-out;
@@ -330,13 +332,35 @@ article{
 .btn1{
   transform: translate(+140%,+0%);
 }
+/*ilgi_alanlarim.html stil kodları*/
+.ilgiBaslik{
+  display: flex;
+  justify-content: center;
+}
+.makale1{
+  font-size: 200%;
+  justify-content: center;
+}
 
-
-
-
-
-
-
+.film_afis{
+  display: flex;
+  justify-content: center;
+}
+/*giris.php stil kodları*/
+.giris_ekrani{
+  display: flex;
+  justify-content: center;
+  font-size: 1000%;
+  font-family: fantasy;
+  background-color:rgb(39, 177, 39) ;
+}
+.login{
+  
+  justify-content: center;
+  text-align: center;
+  font-size: 200%;
+  height: 100vh;
+}
 /*Ortak Responsive Kodlar*/
 @media only screen and (max-width:1366px){
     

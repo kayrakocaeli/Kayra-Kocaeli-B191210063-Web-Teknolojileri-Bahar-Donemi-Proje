@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale,maximum-scale=1"> 
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>   
+        <title>Kayra Kocaeli</title>
+        <link rel="stylesheet" type="text/css" href="stil.css">
+    </head>
+
+    <body>
+        <div class="container-fluid sayfam">
+            
+        <div class="nav_bar">
+            <div class="logo"><a href="index.html"><img src="logo.svg" ></a></div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html" class="btn btn-primary">Anasayfa</a></li>
+                <li><a href="ozgecmis.html"class="btn btn-primary">Özgeçmiş</a></li>
+                <li><a href="sehrim.html"class="btn btn-primary">Şehrim</a></li>
+                <li><a href="mirasimiz.html"class="btn btn-primary">Mirasımız</a></li>
+                <li><a href="ilgialanlari.html"class="btn btn-primary">İlgi Alanları</a></li>
+                <li><a href="iletisim.html"class="btn btn-primary">İletişim</a></li>
+                <li><a href="giris.php"class="btn btn-primary">Giriş Yap</a></li>
+            </ul>
+            
+        </div>
+        <div class="dropdown">
+            <input type="image" src="dropdown.png" value="submit" width="50px">
+            <div class="dropdown-child">
+                <a href="index.html" class="btn btn-primary">Anasayfa</a>
+                <a href="ozgecmis.html"class="btn btn-primary">Özgeçmiş</a>
+                <a href="sehrim.html"class="btn btn-primary">Şehrim</a>
+                <a href="mirasimiz.html"class="btn btn-primary">Mirasımız</a>
+                <a href="ilgialanlari.html"class="btn btn-primary">İlgi Alanları</a>
+                <a href="iletisim.html"class="btn btn-primary">İletişim</a>
+                <a href="giris.php"class="btn btn-primary">Giriş Yap</a>
+              </div>
+        </div>
+        </div>
+
+        <div class="row">
+            <div class="ilgiBaslik"><h1>İlgi Alanlarım</h1>
+            </div>
+            <div class="col-md-4 makale1">
+
+            <h1>Spor</h1>
+            <p>Sporun her türlüsünü oynamayı ve izlemeyi çok severim. En sevdiğim türler basketbol ve futboldur. Beşiktaşlıyım ve genelde maçlarını kaçırmam </p>
+            <table id="super-lig"></table>
+
+
+            </div>
+            <div class="col-md-4 film">
+                <h1>Film</h1>
+                <p>Bilim-kurgu, aksiyon, macera ve komedi türündeki filmleri severim</p>
+                <h1>Favori Filmim</h1>
+                <p class="film_afis"><img src="https://www.themoviedb.org/t/p/w220_and_h330_face/g8CC8B2jgqoz2BgNs4j9GOliBpl.jpg" alt="the-lord-of-the-rings"/></p>
+                <p>Yüzüklerin Efendisi Konusu: Yüzük Kardeşliği, dünyanın kaderini değişterecek olan yüzükten kurtulmak için verilen mücadeleyi konu ediyor. Yıllar önce üretilen ve Orta Dünya topraklarına kandan başka hiçbir şey getirmeyen yüzüklerin sonuncusu, üretiminden yüz yıllar sonra ortaya çıkar. Amcasının kendisine emanet ettiği yüzüğün nelere kadir olduğundan habersiz olan Frodo, büyücü Gandalf'ın anlattıkları sonrasında dehşete kapılır. Bu yüzükten ve müstakbel savaşlardan kurtulmanın tek yolu, gücünü toplamaya çalışan Sauron'u da engellemek için bu yüzüğü yok etmektir. Yüzüğü yok edilebileceği tek yer olan Mordor'a götürmek için kendini feda eden savaşçılardan oluşan bir ekip oluşturulur. Çok uzun ve çetin geçecek olan yolculuk başlar. Orta Dünya'nın kaderi, bu insanların ellerindedir.</p>
+               
+               
+            </div>
+
+
+            <div class="col-md-4">
+                <h1>Teknoloji</h1>
+                <p>Küçüklüğümden beri Teknoloji ile iç içe oldum. Hatta teknolojiye olan ilgim sebebiyle bilgisayar mühendisliğini seçtim. bilgisayar başında neredeyse tüm günümü geçiriyorum. İleride işimin de bilgisayar üzerinden olacağını varsayarsak bu benim için büyük bir avantaj. Teknoloji haberlerini ve gelişmeleri takip etmeyi çok seviyorum. Bunları yaparken kendimi geliştirmeye odaklanıyorum. Çünkü bu sektörde kendini geliştirmek çok önemli. Daha yolun başındayız ve önümüzde sınırsız kaynak var.</p>
+            </div>
+            
+            
+            <script const key='4fc1e1c98cb1a772a095d07ae9126c8a'></script>
+            <script>
+            
+            let baseURL = 'https://api.themoviedb.org/3/';
+            let configData = null;
+            let baseImageURL = null;
+            
+            let getConfig = function () {
+                let url = "".concat(baseURL, 'configuration?api_key=', key); 
+                fetch(url)
+                .then((result)=>{
+                    return result.json();
+                })
+                .then((data)=>{
+                    baseImageURL = data.images.secure_base_url;
+                    configData = data.images;
+                    console.log('config:', data);
+                    console.log('config fetched');
+                    runSearch('jaws')
+                })
+                .catch(function(err){
+                    alert(err);
+                });
+            }
+            
+            let runSearch = function (keyword) {
+                let url = ''.concat(baseURL, 'search/movie?api_key=', key, '&query=', keyword);
+                fetch(url)
+                .then(result=>result.json())
+                .then((data)=>{
+                    //process the returned data
+                    document.getElementById('output').innerHTML = JSON.stringify(data, null, 4);
+                    //work with results array...
+                    
+                })
+            }
+            
+            document.addEventListener('DOMContentLoaded', getConfig);
+            /*******************************
+            SAMPLE SEARCH RESULTS DATA
+            { "vote_count": 2762, 
+                "id": 578, 
+                "video": false, 
+                "vote_average": 7.5, 
+                "title": "Jaws", 
+                "popularity": 16.273358, 
+                "poster_path": "/l1yltvzILaZcx2jYvc5sEMkM7Eh.jpg", 
+                "original_language": "en", 
+                "original_title": "Jaws", 
+                "genre_ids": [ 27, 53, 12 ], 
+                "backdrop_path": "/slkPgAt1IQgxZXNrazEcOzhAK8f.jpg", 
+                "adult": false, 
+                "overview": "An insatiable great white shark terrorizes the townspeople of Amity Island, The police chief, an oceanographer and a grizzled shark hunter seek to destroy the bloodthirsty beast.", 
+                "release_date": "1975-06-18" 
+            }
+            *******************************/
+        </script>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    
+    
+    </div>
+</body>
+</html>
