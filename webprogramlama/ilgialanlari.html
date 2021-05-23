@@ -43,7 +43,12 @@
         <div class="row">
             <div class="ilgiBaslik"><h1>İlgi Alanlarım</h1>
             </div>
-            <div class="col-md-4 makale1">
+           <div class="city"><h1>Yaşadığım Şehir Balıkesir  25 °C</h1><br>
+            <div id="main.temp"></div>
+       
+        </div>
+           
+            <div class ="col-md-4 makale1">
 
             <h1>Spor</h1>
             <p>Sporun her türlüsünü oynamayı ve izlemeyi çok severim. En sevdiğim türler basketbol ve futboldur. Beşiktaşlıyım ve genelde maçlarını kaçırmam </p>
@@ -54,113 +59,87 @@
             <div class="col-md-4 film">
                 <h1>Film</h1>
                 <p>Bilim-kurgu, aksiyon, macera ve komedi türündeki filmleri severim</p>
-                <h1>Favori Filmim</h1>
+                <h1>Favori Filmim:</h1>
                 <p class="film_afis"><img src="https://www.themoviedb.org/t/p/w220_and_h330_face/g8CC8B2jgqoz2BgNs4j9GOliBpl.jpg" alt="the-lord-of-the-rings"/></p>
-                <p>Yüzüklerin Efendisi Konusu: Yüzük Kardeşliği, dünyanın kaderini değişterecek olan yüzükten kurtulmak için verilen mücadeleyi konu ediyor. Yıllar önce üretilen ve Orta Dünya topraklarına kandan başka hiçbir şey getirmeyen yüzüklerin sonuncusu, üretiminden yüz yıllar sonra ortaya çıkar. Amcasının kendisine emanet ettiği yüzüğün nelere kadir olduğundan habersiz olan Frodo, büyücü Gandalf'ın anlattıkları sonrasında dehşete kapılır. Bu yüzükten ve müstakbel savaşlardan kurtulmanın tek yolu, gücünü toplamaya çalışan Sauron'u da engellemek için bu yüzüğü yok etmektir. Yüzüğü yok edilebileceği tek yer olan Mordor'a götürmek için kendini feda eden savaşçılardan oluşan bir ekip oluşturulur. Çok uzun ve çetin geçecek olan yolculuk başlar. Orta Dünya'nın kaderi, bu insanların ellerindedir.</p>
-               
-               
+                <p>Yüzüklerin Efendisi Konusu: Yüzük Kardeşliği, dünyanın kaderini değişterecek olan yüzükten kurtulmak için verilen mücadeleyi konu ediyor. Yıllar önce üretilen ve Orta Dünya topraklarına kandan başka hiçbir şey getirmeyen yüzüklerin sonuncusu, üretiminden yüz yıllar sonra ortaya çıkar. Amcasının kendisine emanet ettiği yüzüğün nelere kadir olduğundan habersiz olan Frodo, büyücü Gandalf'ın anlattıkları sonrasında dehşete kapılır. Bu yüzükten ve müstakbel savaşlardan kurtulmanın tek yolu, gücünü toplamaya çalışan Sauron'u da engellemek için bu yüzüğü yok etmektir. Yüzüğü yok edilebileceği tek yer olan Mordor'a götürmek için kendini feda eden savaşçılardan oluşan bir ekip oluşturulur. Çok uzun ve çetin geçecek olan yolculuk başlar. Orta Dünya'nın kaderi, bu insanların ellerindedir.</p> 
             </div>
 
-
-            <div class="col-md-4">
+            <div class="col-md-4 makale1">
                 <h1>Teknoloji</h1>
                 <p>Küçüklüğümden beri Teknoloji ile iç içe oldum. Hatta teknolojiye olan ilgim sebebiyle bilgisayar mühendisliğini seçtim. bilgisayar başında neredeyse tüm günümü geçiriyorum. İleride işimin de bilgisayar üzerinden olacağını varsayarsak bu benim için büyük bir avantaj. Teknoloji haberlerini ve gelişmeleri takip etmeyi çok seviyorum. Bunları yaparken kendimi geliştirmeye odaklanıyorum. Çünkü bu sektörde kendini geliştirmek çok önemli. Daha yolun başındayız ve önümüzde sınırsız kaynak var.</p>
             </div>
-            
-            
-            <script const key='4fc1e1c98cb1a772a095d07ae9126c8a'></script>
+           <script>
+               function HavaDurumuGetir() {
+
+fetch("https://community-open-weather-map.p.rapidapi.com/weather?q=bal%C4%B1kesir&lat=0&lon=0&callback=test&id=2172797&lang=null&units=%22metric%22%20or%20%22imperial%22&mode=xml%2C%20html", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "ff84edd596mshb08f16f50a0f64ap1e6386jsnd0205c13d0bc",
+		"x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.error(err);
+    
+});
+               }
+               function HavaDurumuGoster( d ) {
+var celcius = Math.round(parseFloat(d.main.temp)-273.15);
+var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32);
+var aciklama = d.weather[0].description;
+document.getElementById('aciklama').innerHTML = aciklama;
+document.getElementById('sicaklik').innerHTML = celcius + '&deg;';
+document.getElementById('konum').innerHTML = d.name;
+}
+
+
+
+           </script>
+            <script const key1='4fc1e1c98cb1a772a095d07ae9126c8a'></script>
+        
             <script>
             
-            let baseURL = 'https://api.themoviedb.org/3/';
-            let configData = null;
-            let baseImageURL = null;
+                let baseURL = 'https://api.themoviedb.org/3/';
+                let configData = null;
+                let baseImageURL = null;
+                
+                let getConfig = function () {
+                    let url = "".concat(baseURL, 'configuration?api_key=', key1); 
+                    fetch(url)
+                    .then((result)=>{
+                        return result.json();
+                    })
+                    .then((data)=>{
+                        baseImageURL = data.images.secure_base_url;
+                        configData = data.images;
+                        console.log('config:', data);
+                        console.log('config fetched');
+                        runSearch('jaws')
+                    })
+                    .catch(function(err){
+                  
+                            alert(err);
+                    });
+                }
+                
+                let runSearch = function (keyword) {
+                    let url = ''.concat(baseURL, 'search/movie?api_key=', key1, '&query=', keyword);
+                    fetch(url)
+                    .then(result=>result.json())
+                    .then((data)=>{
+                        
+                        document.getElementById('output').innerHTML = JSON.stringify(data, null, 4);
+                        
+                      })
+                }
+                
+                document.addEventListener('DOMContentLoaded', getConfig);
             
-            let getConfig = function () {
-                let url = "".concat(baseURL, 'configuration?api_key=', key); 
-                fetch(url)
-                .then((result)=>{
-                    return result.json();
-                })
-                .then((data)=>{
-                    baseImageURL = data.images.secure_base_url;
-                    configData = data.images;
-                    console.log('config:', data);
-                    console.log('config fetched');
-                    runSearch('jaws')
-                })
-                .catch(function(err){
-                    alert(err);
-                });
-            }
-            
-            let runSearch = function (keyword) {
-                let url = ''.concat(baseURL, 'search/movie?api_key=', key, '&query=', keyword);
-                fetch(url)
-                .then(result=>result.json())
-                .then((data)=>{
-                    //process the returned data
-                    document.getElementById('output').innerHTML = JSON.stringify(data, null, 4);
-                    //work with results array...
-                    
-                })
-            }
-            
-            document.addEventListener('DOMContentLoaded', getConfig);
-            /*******************************
-            SAMPLE SEARCH RESULTS DATA
-            { "vote_count": 2762, 
-                "id": 578, 
-                "video": false, 
-                "vote_average": 7.5, 
-                "title": "Jaws", 
-                "popularity": 16.273358, 
-                "poster_path": "/l1yltvzILaZcx2jYvc5sEMkM7Eh.jpg", 
-                "original_language": "en", 
-                "original_title": "Jaws", 
-                "genre_ids": [ 27, 53, 12 ], 
-                "backdrop_path": "/slkPgAt1IQgxZXNrazEcOzhAK8f.jpg", 
-                "adult": false, 
-                "overview": "An insatiable great white shark terrorizes the townspeople of Amity Island, The police chief, an oceanographer and a grizzled shark hunter seek to destroy the bloodthirsty beast.", 
-                "release_date": "1975-06-18" 
-            }
-            *******************************/
-        </script>
-
-
-
-
-
-
+            </script>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-    
     
     </div>
 </body>

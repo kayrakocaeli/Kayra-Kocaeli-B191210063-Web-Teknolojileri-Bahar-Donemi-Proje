@@ -12,7 +12,7 @@ body{
     background:url("background_4.jpg");
     width: 100%;
     height: 100%;
-    background-size: cover;
+    background-size:cover;
 
 }
 .nav_bar{
@@ -183,6 +183,9 @@ article{
   animation: slide 30s infinite;
   
 
+}
+.sehirler{
+  height: 100vh;
 }
 .slider_item{
   width: 20%;
@@ -367,7 +370,7 @@ article{
     .logo img{width: 100%;}
     .pp img{width: 98%;}
     .ad_baslik{font-size:300% ;}
-    .background{height: 48%;}
+    .background{height: 100vh;}
     .nav_bar .dropdown{margin-right: 10%;margin-top: 50px;}
     .menu ul{display:none;}
     .menu i{display: block;z-index: 1;}

@@ -51,19 +51,11 @@
             </h1>
         </div>
 
-
-
-
-
-
         <main>
-
             <div class="login">
-
                 <?php
                 ob_start();
                 include("kullanicilar.php");
-
 
                 if (($_POST["email"] == $user) and ($_POST["password"] == $pass)) {
                     $_SESSION["giris"] = "true";
@@ -82,21 +74,6 @@
             </div>
 
         </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 </body>
-
 </html>

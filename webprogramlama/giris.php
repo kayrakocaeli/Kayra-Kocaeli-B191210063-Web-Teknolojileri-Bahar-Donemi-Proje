@@ -40,27 +40,11 @@
                       </div>
                 </div>
             </div>
-           
-
-            
-
                 <div class="giris_ekrani">
-
-                    
                         <h1 class="font-italic">
                             Giriş Ekranı
                         </h1>
-                    </div>
-
-                
-           
-
-           
-
-
-
-
-                            
+                </div>            
                     <div class="iletisim">
                         
                         <form name="islem" id="contact" action="git-giris.php" method="POST">
@@ -81,23 +65,7 @@
 
                         </form>
 
-                    </div>
-
-                   
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-        </div>   
-    </body>
+                    </div>     
+    </div>   
+</body>
 </html>

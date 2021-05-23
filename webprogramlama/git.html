@@ -40,26 +40,27 @@
                       </div>
                 </div>
             </div>
-            <div class="container">
-<div class="row">
-            <script type="text/javascript">
+        <div class="container">
 
-                function getParameterByName(name, url) 
-                {
-                    if (!url) url = window.location.href;
-                       name = name.replace(/[\[\]]/g, '\\$&');
-                    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-                        results = regex.exec(url);
-                       if (!results) return null;
-                       if (!results[2]) return '';
-                       return decodeURIComponent(results[2].replace(/\+/g, ' '));
-                }
+            <div class="row">
+                <script type="text/javascript">
 
-                  var name = getParameterByName('name');
-                  var email = getParameterByName('email');
-                  var message = getParameterByName('message');
+                    function getParameterByName(name, url) 
+                    {
+                        if (!url) url = window.location.href;
+                        name = name.replace(/[\[\]]/g, '\\$&');
+                        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                            results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                    }
 
-            </script>
+                    var name = getParameterByName('name');
+                    var email = getParameterByName('email');
+                    var message = getParameterByName('message');
+
+                </script>
             	<table class="table">
                     <thead class="table">
                         <tr>
@@ -93,16 +94,11 @@
                         </tr>
 
                     </tbody>
-                
-            </table>	
-
-
+                </table>	
+            </div>
         </div>
-    </div>
-
-
 
             
-        </div>   
-    </body>
+    </div>   
+</body>
 </html>
